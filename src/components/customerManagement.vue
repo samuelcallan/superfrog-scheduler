@@ -24,7 +24,7 @@
             </tr>
             </thead>
             <tbody id="userTableBody">
-                <tr v-for="user in userlist">
+                <tr v-for="user in userlist" :key="user.id">
                     <th scope="row" v-if="user.isActive"> {{user.id}}</th>
                     <td v-if="user.isActive"> {{user.name}}  </td>
                     <td v-if="user.isActive"> {{user.email}}  </td>
