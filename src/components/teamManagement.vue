@@ -43,6 +43,11 @@
 
 <script>
 export default {
+    data() {
+        return {
+            teamlist: []
+        };
+    },
     props: ['teamlist'],
     methods: {
     deleteFrog(index) {
