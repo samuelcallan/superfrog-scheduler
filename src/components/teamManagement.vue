@@ -57,7 +57,7 @@
                     <td v-if="user.isActive"> {{user.bookDate}} </td>
                     <td v-if="user.isActive"> {{user.address}} </td>
                     <td>
-                        <button type="button" class="btn btn-danger">Remove</button>
+                        <button type="button" class="btn btn-danger" @click="deleteFrog(index)">Remove</button>
                     </td>
                 </tr>
             </tbody>
@@ -69,6 +69,11 @@
 <script>
 export default {
     props: ['teamlist'],
+    methods: {
+    deleteFrog(index) {
+        this.teamlist.splice(index,1);
+    }
+    }
 };
 </script>
 
@@ -85,9 +90,5 @@ thead tr{
     background-color: purple;
     border-bottom: 2px solid white;
     color: white;
-}
-
-.modal-body{
-    color: black;
 }
 </style>

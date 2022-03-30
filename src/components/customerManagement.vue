@@ -24,6 +24,9 @@
                     <td v-if="user.isActive"> {{user.email}}  </td>
                     <td v-if="user.isActive"> {{user.bookDate}} </td>
                     <td v-if="user.isActive"> {{user.address}} </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" @click="deleteApp(index)">Remove</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -34,6 +37,11 @@
 <script>
 export default {
     props: ['userlist'],
+    methods: {
+    deleteApp(index) {
+        this.userlist.splice(index,1);
+    }
+    }
 };
 </script>
 
