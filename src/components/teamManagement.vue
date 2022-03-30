@@ -44,11 +44,6 @@
 <script>
 export default {
     props: ['teamlist'],
-    data() {
-        return {
-            teamlist: props
-        };
-    },
     methods: {
     deleteFrog(index) {
         this.teamlist.splice(index,1);
