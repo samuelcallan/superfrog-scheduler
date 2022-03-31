@@ -38,9 +38,9 @@
 export default {
     props: ['userlist'],
     methods: {
-    deleteApp(index) {
-        this.userlist.splice(index,1);
-    }
+        deleteApp(index) {
+            this.userlist.splice(index,1);
+        }
     }
 };
 </script>
@@ -59,5 +59,4 @@ thead tr{
     border-bottom: 2px solid white;
     color: white;
 }
-
 </style>

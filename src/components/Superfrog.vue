@@ -1,13 +1,14 @@
 <template>
 <div>
   <CustomerManagement :userlist="userlist"></CustomerManagement>
-  <TeamManagement :teamlist="teamlist"></TeamManagement>
+  <TeamManagement 
+  :teamlist="teamlist"></TeamManagement>
 </div>
 </template>
 
 <script>
-import CustomerManagement from './customerManagement.vue';
-import TeamManagement from './teamManagement.vue';
+import TeamManagement from '../components/teamManagement.vue';
+import CustomerManagement from '../components/customerManagement.vue'
 export default {
     data() {
         return {
@@ -97,7 +98,7 @@ export default {
             ],
         };
     },
-    components: { CustomerManagement, TeamManagement }
+    components: { CustomerManagement, TeamManagement },
 }
 </script>
 
