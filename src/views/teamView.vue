@@ -1,5 +1,5 @@
 <template>
-<TeamManagement :teamlist="teamlist"></TeamManagement>
+    <TeamManagement :teamlist="teamlist"></TeamManagement>
 </template>
 
 <script>
