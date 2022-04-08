@@ -4,11 +4,16 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "start" : "vite --port $PORT --host",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "bootstrap": "^5.1.3",
+    "sas": "^3.0.4",
+    "sass": "^1.49.10",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.0",
