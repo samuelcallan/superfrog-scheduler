@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import CustomerView from '../views/customerView.vue';
 import TeamView from '../views/teamView.vue';
+import Request from '../views/request.vue';
 
 
 
@@ -13,6 +14,7 @@ const router = createRouter({
     routes: [
         { path: '/customerView', component: CustomerView },
         { path: '/teamView', component: TeamView },
+        { path: '/request', component: Request },
     ],
 });
 

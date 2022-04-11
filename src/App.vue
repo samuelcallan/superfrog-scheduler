@@ -19,6 +19,9 @@ import { RouterLink, RouterView } from 'vue-router';
       <li class="nav-item">
         <RouterLink class="nav-link text-light" to="/customerView">Customer Managment</RouterLink>
       </li>
+      <li class="nav-item">
+        <RouterLink class="nav-link text-light" to="/request">Schedule a Request</RouterLink>
+      </li>
     </ul>
   </div>
 </nav>
