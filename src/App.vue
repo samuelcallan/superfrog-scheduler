@@ -17,6 +17,9 @@ import { RouterLink, RouterView } from 'vue-router';
         <RouterLink class="nav-link text-light" to="/login">Login</RouterLink>
       </li>
       <li class="nav-item">
+        <RouterLink class="nav-link text-light" to="/signup">Signup</RouterLink>
+      </li>
+      <li class="nav-item">
         <RouterLink class="nav-link text-light" to="/teamView">Team Managment</RouterLink>
       </li>
       <li class="nav-item">
@@ -24,6 +27,9 @@ import { RouterLink, RouterView } from 'vue-router';
       </li>
       <li class="nav-item">
         <RouterLink class="nav-link text-light" to="/request">Schedule a Request</RouterLink>
+      </li>
+      <li class="nav-item">
+        <RouterLink class="nav-link text-light" to="/account">Account</RouterLink>
       </li>
     </ul>
   </div>
