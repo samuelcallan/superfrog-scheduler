@@ -5,7 +5,10 @@
         <div class="row">
         <div class="col-sm-6 text-black">
             <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-            <Form style="width: 23rem;" @submit="login" :validation-schema="validationSchema">
+            <Form 
+            :validation-schema="validationSchema" 
+            style="width: 23rem;" 
+            v-slot:default="{ errors }">
                 <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
                 <div class="form-outline mb-4">
                 <Field 
@@ -17,6 +20,9 @@
                 placeholder="Input your account email"
                 id="form2Example18" 
                 />
+                <div v-if="errors.account">
+                  Account name must be a valid email address
+                </div>
                 <label class="form-label" for="form2Example18">Email address</label>
                 </div>
                 <div class="form-outline mb-4">
@@ -30,11 +36,14 @@
                 id="form2Example28" 
                 class="form-control form-control-lg" 
                 />
+                <div v-if="errors.account">
+                  Account name must be a valid email address
+                </div>
                 <label class="form-label" for="form2Example28">Password</label>
                 </div>
 
                 <div class="pt-1 mb-4">
-                <button class="btn btn-lg btn-block" type="button" id="login">Login</button>
+                <button class="btn btn-lg btn-block" type="button" id="login" @click="login">Login</button>
                 </div>
 
                 <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>

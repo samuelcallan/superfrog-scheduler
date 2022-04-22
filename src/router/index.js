@@ -1,26 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import CustomerView from '../views/customerView.vue';
-import TeamView from '../views/teamView.vue';
-import Request from '../views/request.vue';
-import Home from '../views/homeView.vue';
-import Login from '../views/Login.vue';
-import Account from '../views/account.vue';
-import Signup from '../views/signup.vue';
+import basicRoutes from './basicRoutes';
+import setupGuard from './guard';
+import useUserStore from '@/store/userStore';
+import autoloadDynamicRoutes from './loadDynamicRoutes';
+import utils from '@/utils';
 
-// Create the router instance
 const router = createRouter({
-    // Provide the history implementation to use.
-    history: createWebHistory(),
-    // Define some route recods, each route record should map to a component.
-    routes: [
-        { path: '/', component: Home },
-        { path: '/login', component: Login },
-        { path: '/signup', component: Signup },
-        { path: '/customerView', component: CustomerView },
-        { path: '/teamView', component: TeamView },
-        { path: '/account', component: Account },
-        { path: '/request', component: Request },
-    ],
+  history: createWebHistory(),
+  routes: [...basicRoutes],
 });
 
-export default router
+export async function setupRouter(app) {
+  if (utils.cacheUtils.get('login_token')?.token) {
+    // get user info and save it to Pinia, then we can have access to user's permission list in different components
+    const userStore = useUserStore();
+    await userStore.getUserInfo();
+
+    autoloadDynamicRoutes(router); // add more route records to the router, e.g., /users and /orders
+  }
+  setupGuard(router); // set up router guard
+  app.use(router);
+}
+
+export default router;

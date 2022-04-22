@@ -17,7 +17,7 @@ const basicRoutes = [
                 component: () => import('@/views/homeView.vue'),
             },
             {
-                path: 'requst',
+                path: 'request',
                 name: 'request',
                 meta: {
                     title: 'Request',
@@ -25,6 +25,15 @@ const basicRoutes = [
                 },
                 component: () => import('@/views/request.vue')
             },
+            {
+                path: '/account',
+                name: 'account',
+                meta: { 
+                    title: 'Account', 
+                    requiresAuth: true,
+                },
+                component: () => import('@/views/account.vue'),
+              },
         ],
     },
     {
@@ -35,7 +44,7 @@ const basicRoutes = [
         component: () => import('@/layouts/CustomerLayout.vue'),
         children: [
             {
-                path: 'login',
+                path: '/login',
                 name: 'auth.login',
                 component: () => import('@/views/Login.vue'),
                 meta: {

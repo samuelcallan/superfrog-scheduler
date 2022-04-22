@@ -2,16 +2,18 @@
 const dynamicRoutes = [
   {
     path: '/customerManagement',
-    name: 'customer Management',
-    meta: { title: 'Customer', permissions: ['Customer'] },
+    name: 'Customer Management',
+    meta: { title: 'Customer', permissions: ['director'] },
     component: () => import('@/views/CustomerView.vue'),
   },
   {
-    path: '/account',
-    name: 'account',
-    meta: { title: 'VIP Users', permissions: ['users'] },
-    component: () => import('@/views/account.vue'),
+    path: '/teamManagement',
+    name: 'Team Management',
+    meta: { title: 'Team', permissions: ['director'] },
+    component: () => import('@/views/teamView.vue'),
   },
 ];
 
 export default dynamicRoutes;
+
+

@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
-<nav class="navbar navbar-expand-lg text-light" id="mainNav" style="background-color:purple;">
+<!-- <nav class="navbar navbar-expand-lg text-light" id="mainNav" style="background-color:purple;">
   <a class="navbar-brand" href="#">SuperFrog</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -33,7 +33,7 @@ import { RouterLink, RouterView } from 'vue-router';
       </li>
     </ul>
   </div>
-</nav>
+</nav> -->
 <RouterView></RouterView>
 </template>
 
