@@ -34,6 +34,15 @@ const basicRoutes = [
                 },
                 component: () => import('@/views/account.vue'),
               },
+              {
+                path: '/signup',
+                name: 'signup',
+                meta: { 
+                    title: 'Sign-Up', 
+                    requiresAuth: false,
+                },
+                component: () => import('@/views/signup.vue'),
+              },
         ],
     },
     {

@@ -14,6 +14,9 @@
         	<input type="email" class="form-control" name="email" placeholder="Email" required="required">
         </div>
 		<div class="form-group">
+        	<input type="text" class="form-control" name="phone number" placeholder="Phone Number" required="required">
+        </div>
+		<div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Password" required="required">
         </div>
 		<div class="form-group">
@@ -33,6 +36,16 @@
 </template>
 
 <script>
+
+const newUser = [
+	{
+		name: '',
+		email: '',
+		phone: '',
+		password: '',
+
+	}
+]
 
 </script>
 
