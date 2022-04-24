@@ -12,4 +12,6 @@ const login = async (loginInfo) => {
   }).then((r) => r.json());
 };
 
+
+
 export default { info, login };
