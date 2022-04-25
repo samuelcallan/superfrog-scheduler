@@ -13,19 +13,25 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Booking Date</th>
+                <th scope="col">isActive</th>
                 <th scope="col">Address</th>
+                <th></th>
                 <th></th>
             </tr>
             </thead>
             <tbody id="userTableBody">
                 <tr v-for="user in userlist" :key="user.id">
-                    <th scope="row" v-if="user.isActive"> {{user.id}}</th>
-                    <td v-if="user.isActive"> {{user.name}}  </td>
-                    <td v-if="user.isActive"> {{user.email}}  </td>
-                    <td v-if="user.isActive"> {{user.bookDate}} </td>
-                    <td v-if="user.isActive"> {{user.address}} </td>
+                    <th scope="row"> {{user.id}}</th>
+                    <td> {{user.name}}  </td>
+                    <td> {{user.email}}  </td>
+                    <td> {{user.bookDate}} </td>
+                    <td> {{user.isActive}} </td>
+                    <td> {{user.address}} </td>
                     <td>
-                        <button type="button" class="btn btn-danger" @click="deleteApp(index)">Remove</button>
+                        <button type="button" class="btn btn-danger" @click="deleteApp(user.id)">Remove</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success" @click="reinstate(user.id)">Re-Activate</button>
                     </td>
                 </tr>
             </tbody>
@@ -38,9 +44,20 @@
 export default {
     props: ['userlist'],
     methods: {
-        deleteApp(index) {
-            this.userlist.splice(index,1);
-        }
+        deleteApp(id) {
+            for(let i = 0; i < this.userlist.length; i++){
+                if(this.userlist[i].id == id){
+                     this.userlist[i].isActive = false;
+                }
+            }
+        },
+        reinstate(id){
+            for(let i = 0; i < this.userlist.length; i++){
+                if(this.userlist[i].id == id){
+                     this.userlist[i].isActive = true;
+                }
+            }
+        },
     }
 };
 </script>

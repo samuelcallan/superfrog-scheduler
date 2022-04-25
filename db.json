@@ -1,0 +1,21 @@
+{
+    "profile": {
+      "code": 200,
+      "message": "Request success",
+      "type": "success",
+      "result": {
+        "first": "John",
+        "last": "Smith",
+        "phone": "661-111-111",
+        "email": "b.wei@tcu.edu",
+        "permissions": [
+          "director",
+          "customer"
+        ]
+      }
+    },
+    "login": {
+      "account": "b.wei@tcu.edu",
+      "password": "123"
+    }
+}
