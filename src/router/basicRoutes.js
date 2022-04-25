@@ -26,6 +26,16 @@ const basicRoutes = [
                 component: () => import('@/views/request.vue')
             },
             {
+                path: 'approval',
+                name: 'approval',
+                meta: {
+                    title: 'Approval',
+                    requiresAuth: false,
+                },
+                component: () => import('@/views/approvalView.vue')
+            },
+            
+            {
                 path: '/account',
                 name: 'account',
                 meta: { 
