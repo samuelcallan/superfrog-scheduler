@@ -21,12 +21,12 @@
             </thead>
             <tbody id="userTableBody">
                 <tr v-for="user in userlist" :key="user.id">
-                    <th scope="row"> {{user.id}}</th>
-                    <td> {{user.name}}  </td>
-                    <td> {{user.email}}  </td>
-                    <td> {{user.bookDate}} </td>
-                    <td> {{user.isActive}} </td>
-                    <td> {{user.address}} </td>
+                    <th scope="row"> {{user.profile.result.id}}</th>
+                    <td> {{user.profile.result.name}}  </td>
+                    <td> {{user.profile.result.email}}  </td>
+                    <td> {{user.profile.result.bookingDate}} </td>
+                    <td> {{user.profile.result.isActive}} </td>
+                    <td> {{user.profile.result.address}} </td>
                     <td>
                         <button type="button" class="btn btn-danger" @click="deleteApp(user.id)">Remove</button>
                     </td>
@@ -41,18 +41,17 @@
 </template>
 
 <script>
-// import axios from "axios";
-
+import axios from "axios";
 export default {
-    // data(){
-    //     return{
-    //         userlist: []
-    //     }
-    // },
-    // mounted(){
-    //     this.retrieve();
-    // },
-    props: ['userlist'],
+    data(){
+        return{
+            userlist: []
+        }
+    },
+    mounted(){
+        this.retrieve();
+    },
+    // props: ['userlist'],
     methods: {
         deleteApp(id) {
             for(let i = 0; i < this.userlist.length; i++){
@@ -68,13 +67,13 @@ export default {
                 }
             }
         },
-        // async retrieve(){
-        //     await axios
-        //     .get('')
-        //     .then(response => (
-        //         userlist = response.data
-        //     ))
-        // }
+        async retrieve(){
+            await axios
+            .get('db.json')
+            .then(response => (
+                this.userlist = response.data
+            ))
+        }
     }
 };
 </script>
