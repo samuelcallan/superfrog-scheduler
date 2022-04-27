@@ -1,0 +1,12 @@
+2022-04-25 23:46:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]User (first_name text,last_name text,phone_number text,email text,password text);"; expected "identifier"; SQL statement:
+create table User (first_name text,last_name text,phone_number text,email text,password text); [42001-212]
+2022-04-25 23:47:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]User (first_name text);"; expected "identifier"; SQL statement:
+create table User (first_name text); [42001-212]
+2022-04-27 10:13:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENT" already exists; SQL statement:
+create table Event (name text,location text,date text,start_time text,end_time text) [42101-212]
+2022-04-27 10:13:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PEOPLE" already exists; SQL statement:
+create table People (first_name text, last_name text, phone_number text, email text, password text) [42101-212]
