@@ -41,7 +41,17 @@
 </template>
 
 <script>
+// import axios from "axios";
+
 export default {
+    // data(){
+    //     return{
+    //         userlist: []
+    //     }
+    // },
+    // mounted(){
+    //     this.retrieve();
+    // },
     props: ['userlist'],
     methods: {
         deleteApp(id) {
@@ -58,6 +68,13 @@ export default {
                 }
             }
         },
+        // async retrieve(){
+        //     await axios
+        //     .get('')
+        //     .then(response => (
+        //         userlist = response.data
+        //     ))
+        // }
     }
 };
 </script>
@@ -67,12 +84,12 @@ export default {
     margin-top: 10px;
 }
 .card-body{
-    background-color: purple;
+    background-color: #4D1979;
     color: white;
 }
 
 thead tr{
-    background-color: purple;
+    background-color: #4D1979;
     border-bottom: 2px solid white;
     color: white;
 }

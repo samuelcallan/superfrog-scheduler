@@ -25,7 +25,7 @@
 
 <style lang="scss" scoped>
 .nav-item{
-  background-color: purple;
+  background-color: #4D1979;
 }
 
 .nav-link{

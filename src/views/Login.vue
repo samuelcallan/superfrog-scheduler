@@ -91,11 +91,11 @@ export default{
     margin-bottom: 50px;
 }
 #login{
-    background-color: purple;
+    background-color: #4D1979;
     color: white;
 }
 
 #register{
-    color: purple;
+    color: #4D1979;
 }
 </style>

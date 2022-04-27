@@ -39,6 +39,7 @@
                 <th scope="col">Time</th>
                 <th scope="col">Address</th>
                 <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody id="userTableBody">
@@ -88,7 +89,6 @@ export default {
                     }
                 ];
 
-        
                 newUser.id = this.teamlist.length + 1;
                 newUser.name = newName;
                 newUser.email = newEmail;
@@ -113,12 +113,12 @@ export default {
     margin-top: 10px;
 }
 .card-body{
-    background-color: purple;
+    background-color: #4D1979;
     color: white;
 }
 
 thead tr{
-    background-color: purple;
+    background-color: #4D1979;
     border-bottom: 2px solid white;
     color: white;
 }

@@ -1,26 +1,26 @@
 <template>
 <div class="container">
     <div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="/examples/actions/confirmation.p" method="post">
 		<h2>Register</h2>
 		<p class="hint-text">Create your account. It's free and only takes a minute.</p>
         <div class="form-group">
 			<div class="row">
-				<div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
-				<div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+				<div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required" :value="newUser.first"></div>
+				<div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required" :value="newUser.last"></div>
 			</div>        	
         </div>
         <div class="form-group">
-        	<input type="email" class="form-control" name="email" placeholder="Email" required="required">
+        	<input type="email" class="form-control" name="email" placeholder="Email" required="required" :value="newUser.email">
         </div>
 		<div class="form-group">
-        	<input type="text" class="form-control" name="phone number" placeholder="Phone Number" required="required">
+        	<input type="text" class="form-control" name="phone number" placeholder="Phone Number" required="required" :value="newUser.phone">
         </div>
 		<div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Password" required="required">
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required" :value="newUser.password">
         </div>        
         <div class="form-group">
 			<label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
@@ -32,21 +32,36 @@
 	<div class="text-center">Already have an account? <a href="#">Sign in</a></div>
 </div>
 </div>
-
 </template>
 
 <script>
-
-const newUser = [
-	{
-		name: '',
-		email: '',
-		phone: '',
-		password: '',
-
+import axios from 'axios';
+export default{
+	data(){
+		return {
+			data: null,
+			isLoaded: false,
+			newUser: {
+				first: '',
+				last: '',
+				email: '',
+				phone: '',
+				password: '',
+			}
+		};
+	},
+	methods: {
+		 async signUp(){
+			await axios.post('db.json',{
+				first: newUser.first,
+				last: newUser.last,
+				email: newUser.email,
+				phone: newUser.phone,
+			})
+		},
 	}
-]
 
+}
 </script>
 
 <style>
@@ -57,7 +72,7 @@ body {
 }
 #registerNow{
     color: white;
-    background-color: purple;
+    background-color: #4D1979;
 }
 .form-control {
 	height: 40px;
@@ -136,7 +151,7 @@ body {
 	text-decoration: none;
 }
 .signup-form form a {
-	color: purple;
+	color: #4D1979;
 	text-decoration: none;
 }	
 .signup-form form a:hover {

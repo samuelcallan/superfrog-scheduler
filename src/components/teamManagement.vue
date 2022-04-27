@@ -126,12 +126,12 @@ export default {
     margin-top: 10px;
 }
 .card-body{
-    background-color: purple;
+    background-color: #4D1979;
     color: white;
 }
 
 thead tr{
-    background-color: purple;
+    background-color: #4D1979;
     border-bottom: 2px solid white;
     color: white;
 }

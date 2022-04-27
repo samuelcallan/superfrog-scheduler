@@ -1,28 +1,28 @@
 <template>
 <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-5 border-right mx-auto">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Profile Settings</h4>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">First Name</label><input readonly type="text" class="form-control" placeholder="first name" :value="user.first"></div>
-                        <div class="col-md-6"><label class="labels">Last Name</label><input readonly type="text" class="form-control" :value="user.last" placeholder="last name"></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Mobile Number</label><input readonly type="text" class="form-control" placeholder="enter phone number" :value="user.phone"></div>
-                        <div class="col-md-12"><label class="labels">Email</label><input readonly type="text" class="form-control" placeholder="enter email" :value="user.email"></div>
-                    </div>
-                    <div class="mt-5 text-center">
-                        <button class="btn btn-warning" type="button" @click="edit">Edit Profile</button>
-                    </div>
-                    <div class="mt-3 text-center">
-                        <button class="btn btn-primary" type="button" @click="save">Update Profile</button>
-                    </div>
+    <div class="row">
+        <div class="col-md-5 border-right mx-auto">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">First Name</label><input readonly type="text" class="form-control" placeholder="first name" :value="user.first"></div>
+                    <div class="col-md-6"><label class="labels">Last Name</label><input readonly type="text" class="form-control" :value="user.last" placeholder="last name"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Mobile Number</label><input readonly type="text" class="form-control" placeholder="enter phone number" :value="user.phone"></div>
+                    <div class="col-md-12"><label class="labels">Email</label><input readonly type="text" class="form-control" placeholder="enter email" :value="user.email"></div>
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="btn btn-warning" type="button" @click="edit">Edit Profile</button>
+                </div>
+                <div class="mt-3 text-center">
+                    <button class="btn btn-primary" type="button" @click="save">Update Profile</button>
                 </div>
             </div>
         </div>
+    </div>
 </div>
 </template>
 
@@ -56,7 +56,6 @@ export default {
                 )
             )
         },
-
         edit(){
             let elements = [];
             elements = document.getElementsByClassName('form-control');
@@ -64,13 +63,25 @@ export default {
                 elements[i].readOnly = false;
             }
         },
-        save(){
+        async save(){
             let elements = [];
             elements = document.getElementsByClassName('form-control');
             for(let i = 0; i < elements.length; i++){
                 elements[i].readOnly = true;
             }
-        }
+
+            const data = {
+                first: this.user.first,
+                last: this.user.last,
+                email: this.user.email,
+                phone: this.user.phone
+            }
+            
+            // await axios.put('', data)
+            // .then(response => (
+            //     console.log(response)
+            // ))
+        },
     }
 }
 </script>
