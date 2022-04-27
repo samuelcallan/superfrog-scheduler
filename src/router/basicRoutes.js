@@ -26,16 +26,6 @@ const basicRoutes = [
                 component: () => import('@/views/request.vue')
             },
             {
-                path: 'approval',
-                name: 'approval',
-                meta: {
-                    title: 'Approval',
-                    requiresAuth: false,
-                },
-                component: () => import('@/views/approvalView.vue')
-            },
-            
-            {
                 path: '/account',
                 name: 'account',
                 meta: { 
@@ -43,15 +33,6 @@ const basicRoutes = [
                     requiresAuth: true,
                 },
                 component: () => import('@/views/account.vue'),
-              },
-              {
-                path: '/signup',
-                name: 'signup',
-                meta: { 
-                    title: 'Sign-Up', 
-                    requiresAuth: false,
-                },
-                component: () => import('@/views/signup.vue'),
               },
         ],
     },
