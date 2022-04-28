@@ -12,7 +12,16 @@ const dynamicRoutes = [
     meta: { title: 'Team', permissions: ['director'] },
     component: () => import('@/views/teamView.vue'),
   },
-];
+  {
+    path: '/approval',
+    name: 'Approval',
+    meta: {
+        title: 'Approval',
+        permissions: ['director'],
+    },  
+    component: () => import('@/views/approvalView.vue')
+  },
+];  
 
 export default dynamicRoutes;
 

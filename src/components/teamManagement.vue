@@ -51,11 +51,11 @@
             </thead>
             <tbody id="userTableBody">
                 <tr v-for="user in teamlist" :key="user.id">
-                    <th scope="row" v-if="user.isActive"> {{user.id}}</th>
-                    <td v-if="user.isActive"> {{user.name}}  </td>
-                    <td v-if="user.isActive"> {{user.email}}  </td>
-                    <td v-if="user.isActive"> {{user.bookDate}} </td>
-                    <td v-if="user.isActive"> {{user.address}} </td>
+                    <th scope="row" > {{user.profile.result.id}}</th>
+                    <td > {{user.profile.result.name}} </td>
+                    <td > {{user.profile.result.email}}  </td>
+                    <td > {{user.profile.result.bookingDate}} </td>
+                    <td > {{user.profile.result.address}} </td>
                     <td>
                         <button type="button" class="btn btn-danger" @click="deleteFrog(user.id)">Remove</button>
                     </td>
@@ -67,9 +67,25 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-    props: ['teamlist'],
+    data(){
+        return{
+            teamlist: []
+        }
+    },
+    mounted(){
+        this.retrieve();
+    },
+    // props: ['teamlist'],
     methods: {
+        async retrieve(){
+            await axios
+            .get('db.json')
+            .then(response => (
+                this.teamlist = response.data
+            ))
+        },
         deleteFrog(id) {
             let delIndex;
             for(let i = 0; i < this.teamlist.length; i++){
@@ -126,12 +142,12 @@ export default {
     margin-top: 10px;
 }
 .card-body{
-    background-color: purple;
+    background-color: #4D1979;
     color: white;
 }
 
 thead tr{
-    background-color: purple;
+    background-color: #4D1979;
     border-bottom: 2px solid white;
     color: white;
 }
