@@ -49,10 +49,11 @@ export default {
             await axios
             .get('db.json')
             .then(response => (
-                this.user.first = response.data.profile.result.first,
-                this.user.last = response.data.profile.result.last,
-                this.user.phone = response.data.profile.result.phone,
-                this.user.email = response.data.profile.result.email
+                // this.user.first = response.data.profile.result.first,
+                // this.user.last = response.data.profile.result.last,
+                // this.user.phone = response.data.profile.result.phone,
+                // this.user.email = response.data.profile.result.email
+                console.log(response.data)
                 )
             )
         },

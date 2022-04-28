@@ -2,6 +2,7 @@ const basicRoutes = [
     {
         path: '/',
         name: 'LoggedOutLayout',
+        redirect: 'home',
         meta: {
             requiresAuth: false,
         },

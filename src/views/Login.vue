@@ -6,7 +6,8 @@
         <div class="col-sm-6 text-black">
             <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
             <Form 
-            :validation-schema="validationSchema" 
+            @submit="login"
+            :validation-schema="validationSchema"
             style="width: 23rem;" 
             v-slot:default="{ errors }">
                 <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
@@ -21,9 +22,8 @@
                 id="form2Example18" 
                 />
                 <div v-if="errors.account">
-                  Account name must be a valid email address
+                  Please enter valid email address
                 </div>
-                <label class="form-label" for="form2Example18">Email address</label>
                 </div>
                 <div class="form-outline mb-4">
                 <Field 
@@ -37,15 +37,12 @@
                 class="form-control form-control-lg" 
                 />
                 <div v-if="errors.account">
-                  Account name must be a valid email address
+                  Please enter valid password
                 </div>
-                <label class="form-label" for="form2Example28">Password</label>
                 </div>
-
                 <div class="pt-1 mb-4">
-                <button class="btn btn-lg btn-block" type="button" id="login" @click="login">Login</button>
+                <button class="btn btn-lg btn-block" type="submit" id="login">Login</button>
                 </div>
-
                 <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>
                 <p>Don't have an account? <a href="#!" class="link-info" id="register">Register here</a></p>
             </Form>
@@ -63,7 +60,7 @@
 
 <script>
 import v from '@/plugins/validation'
-import { Form, Field } from 'vee-validate';
+import { Form, Field, ErrorMessage } from 'vee-validate';
 import utils from '@/utils';
 export default{
    data() {
@@ -77,6 +74,7 @@ export default{
   components: {
     Form,
     Field,
+    ErrorMessage
   },
   methods: {
     async login(values) {
