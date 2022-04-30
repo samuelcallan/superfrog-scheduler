@@ -11,6 +11,7 @@ function autoloadDynamicRoutes(router) {
     dynamicRoutes.forEach((route) => {
       if (route.meta.permissions?.every((p) => userPermissions.includes(p))) {
         router.addRoute('LoggedOutLayout', route); // add view as a child of main layout
+        router.removeRoute('signup');
       }
     });
   }
