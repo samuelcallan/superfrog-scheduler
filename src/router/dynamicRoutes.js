@@ -21,6 +21,15 @@ const dynamicRoutes = [
     },  
     component: () => import('@/views/approvalView.vue')
   },
+  {
+    path: '/superfrogManagement',
+    name: 'Superfrog Approval',
+    meta: {
+      title: 'SuperfrogApproval',
+      permissions: ['director'],
+    },
+    component: () => import('@/views/superfrogView.vue')
+  }
 ];  
 
 export default dynamicRoutes;
