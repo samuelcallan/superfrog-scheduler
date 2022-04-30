@@ -15,6 +15,7 @@
                   route.meta.title
                 }}</router-link>
             </span>
+            <button class="dropdown-item" @click="logout">Logout</button>
           </div>
       </li>
     </ul>
@@ -22,6 +23,19 @@
 </nav>
 </div>
 </template>
+
+
+<script>
+import utils from '@/utils';
+export default{
+  methods: {
+    async logout(){
+      utils.userLoginUtils.logout();
+    }
+  }
+}
+
+</script>
 
 <style lang="scss" scoped>
 .nav-item{
