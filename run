@@ -1,2 +1,0 @@
-#!/bin/sh
-java -classpath json-simple-1.1.1.jar:.:h2-2.1.212.jar Server
