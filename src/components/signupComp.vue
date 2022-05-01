@@ -53,7 +53,7 @@ export default{
 	},
 	methods: {
 		 async signUp(){
-			await axios.post('https://superfrog-scheduler-frontend.herokuapp.com/api/signup',{
+			await axios.post('/api/signup',{
 				first: this.newUser.first,
 				last: this.newUser.last,
 				email: this.newUser.email,
