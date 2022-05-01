@@ -17,7 +17,7 @@ export default [
       },
     },
     {
-      url: '/api/auth/login',
+      url: 'https://superfrog-scheduler-frontend.herokuapp.com/api/auth/login',
       method: 'post',
       timeout: 2000,
       response: () => {
