@@ -3,7 +3,7 @@ const info = async () => {
 };
 
 const login = async (loginInfo) => {
-  return await fetch('http://superfrog-scheduler-frontend.herokuapp.com', {
+  return await fetch('https://superfrog-scheduler-frontend.herokuapp.com', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
