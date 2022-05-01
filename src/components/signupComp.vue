@@ -1,26 +1,26 @@
 <template>
 <div class="container">
     <div class="signup-form">
-    <form action="/examples/actions/confirmation.p" method="post">
+    <form @submit.prevent="signUp()" method="post">
 		<h2>Register</h2>
 		<p class="hint-text">Create your account. It's free and only takes a minute.</p>
         <div class="form-group">
 			<div class="row">
-				<div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required" :value="newUser.first"></div>
-				<div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required" :value="newUser.last"></div>
+				<div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required" v-model="newUser.first"></div>
+				<div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required" v-model="newUser.last"></div>
 			</div>        	
         </div>
         <div class="form-group">
-        	<input type="email" class="form-control" name="email" placeholder="Email" required="required" :value="newUser.email">
+        	<input type="email" class="form-control" name="email" placeholder="Email" required="required" v-model="newUser.email">
         </div>
 		<div class="form-group">
-        	<input type="text" class="form-control" name="phone number" placeholder="Phone Number" required="required" :value="newUser.phone">
+        	<input type="text" class="form-control" name="phone number" placeholder="Phone Number" required="required" v-model="newUser.phone">
         </div>
 		<div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Password" required="required">
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required" :value="newUser.password">
+            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required" v-model="newUser.password">
         </div>        
         <div class="form-group">
 			<label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
@@ -36,6 +36,7 @@
 
 <script>
 import axios from 'axios';
+import utils from '@/utils';
 export default{
 	data(){
 		return {
@@ -53,11 +54,16 @@ export default{
 	methods: {
 		 async signUp(){
 			await axios.post('db.json',{
-				first: newUser.first,
-				last: newUser.last,
-				email: newUser.email,
-				phone: newUser.phone,
+				first: this.newUser.first,
+				last: this.newUser.last,
+				email: this.newUser.email,
+				phone: this.newUser.phone,
 			})
+			let values = {
+				account: this.newUser.email,
+				password: this.newUser.password
+			}
+			utils.userLoginUtils.login(values);
 		},
 	}
 }

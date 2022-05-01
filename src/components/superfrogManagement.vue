@@ -14,21 +14,25 @@
                 <th scope="col">Email</th>
                 <th scope="col">Event Name</th>
                 <th scope="col">Booking Date</th>
-                <th scope="col">Time</th>
+                <th scope="col">Start Time</th>
+                <th scope="col">End Time</th>
                 <th scope="col">Address</th>
+                <th scope="col">Status</th>
                 <th></th>
                 <th></th>
             </tr>
             </thead>
             <tbody id="userTableBody">
                 <tr v-for="user in userlist" :key="user.id">
-                    <th scope="row" v-if="user.isPending"> {{user.id}}</th>
-                    <td v-if="user.isPending"> {{user.name}}  </td>
-                    <td v-if="user.isPending"> {{user.email}}  </td>
-                    <td v-if="user.isPending"> {{user.event}} </td>
-                    <td v-if="user.isPending"> {{user.bookDate}} </td>
-                    <td v-if="user.isPending"> {{user.time}} </td>
-                    <td v-if="user.isPending"> {{user.address}} </td>
+                    <th scope="row" > {{user.profile.result.id}}</th>
+                    <td > {{user.profile.result.name}}  </td>
+                    <td > {{user.profile.result.email}}  </td>
+                    <td > {{user.profile.result.eventName}}  </td>
+                    <td > {{user.profile.result.bookingDate}} </td>
+                    <td > {{user.profile.result.start}} </td>
+                    <td > {{user.profile.result.end}} </td>
+                    <td > {{user.profile.result.address}} </td>
+                    <td > {{user.profile.result.status}} </td>
                     <td>
                         <button type="button" class="btn btn-primary" @click="acceptApp(index)">Accept</button>
                     </td>
@@ -43,12 +47,31 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-    props: ['userlist'],
+    data(){
+        return{
+            userlist: []
+        }
+    },
+    mounted(){
+        this.retrieve();
+    },
     methods: {
         denyApp(index) {
             this.userlist.splice(index,1);
         },
+
+        acceptApp(index){
+
+        },
+        async retrieve(){
+            await axios
+            .get('db2.json')
+            .then(response => (
+                this.userlist = response.data
+            ))
+        }
     }
 };
 </script>

@@ -1,0 +1,56 @@
+[
+    {
+      "profile": {
+        "code": 200,
+        "message": "Request success",
+        "type": "success",
+        "result": {
+          "id": 1,
+          "name": "John Smith",
+          "email": "b.wei@tcu.edu",
+          "eventName": "Birthday Party",
+          "bookingDate": "2-3-04",
+          "start": "10:00",
+          "end": "11:00",
+          "isActive": true,
+          "address": "123 McCart Ave",
+          "status": "Pending",
+          "permissions": [
+            "director",
+            "customer"
+          ]
+        }
+      },
+      "login": {
+        "account": "b.wei@tcu.edu",
+        "password": "123"
+      }
+    },
+    {
+      "profile": {
+        "code": 200,
+        "message": "Request success",
+        "type": "success",
+        "result": {
+          "id": 2,
+          "name": "Tom Jim",
+          "eventName": "Birthday Party",
+          "email": "scherg@tcu.edu",
+          "bookingDate": "1-2-03",
+          "start": "10:00",
+          "end": "11:00",
+          "isActive": true,
+          "address": "456 McCart Ave",
+          "status": "Pending",
+          "permissions": [
+            "director",
+            "customer"
+          ]
+        }
+      },
+      "login": {
+        "account": "scherg@tcu.edu",
+        "password": "123"
+      }
+    }
+]
