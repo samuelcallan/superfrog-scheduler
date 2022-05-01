@@ -4,7 +4,7 @@ const dynamicRoutes = [
     path: '/customerManagement',
     name: 'Customer Management',
     meta: { title: 'Customer', permissions: ['director'] },
-    component: () => import('@/views/CustomerView.vue'),
+    component: () => import('@/views/customerView.vue'),
   },
   {
     path: '/teamManagement',
