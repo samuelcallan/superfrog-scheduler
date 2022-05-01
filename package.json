@@ -3,10 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --host localhost:3000",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start" : "npm run dev"
+    "start": "vite --port $PORT --host"
   },
   "dependencies": {
     "@vee-validate/rules": "^4.5.10",
