@@ -16,7 +16,7 @@ public class Server
         try
         {
             init_db();
-            HttpServer server = HttpServer.create('https://superfrog-scheduler-frontend.herokuapp.com');
+            HttpServer server = HttpServer.create(new InetSocketAddress(4000),0);
             server.createContext("/api/profile", new ProfileHandler());
             server.createContext("/api/auth/login", new AuthHandler());
             server.createContext("/api/signup", new SignUpHandler());
