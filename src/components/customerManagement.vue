@@ -13,19 +13,25 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Booking Date</th>
+                <th scope="col">isActive</th>
                 <th scope="col">Address</th>
+                <th></th>
                 <th></th>
             </tr>
             </thead>
             <tbody id="userTableBody">
                 <tr v-for="user in userlist" :key="user.id">
-                    <th scope="row" v-if="user.isActive"> {{user.id}}</th>
-                    <td v-if="user.isActive"> {{user.name}}  </td>
-                    <td v-if="user.isActive"> {{user.email}}  </td>
-                    <td v-if="user.isActive"> {{user.bookDate}} </td>
-                    <td v-if="user.isActive"> {{user.address}} </td>
+                    <th scope="row"> {{user.profile.result.id}}</th>
+                    <td> {{user.profile.result.name}}  </td>
+                    <td> {{user.profile.result.email}}  </td>
+                    <td> {{user.profile.result.bookingDate}} </td>
+                    <td> {{user.profile.result.isActive}} </td>
+                    <td> {{user.profile.result.address}} </td>
                     <td>
-                        <button type="button" class="btn btn-danger" @click="deleteApp(index)">Remove</button>
+                        <button type="button" class="btn btn-danger" @click="deleteApp(user.profile.result.id)">Remove</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success" @click="reinstate(user.profile.result.id)">Re-Activate</button>
                     </td>
                 </tr>
             </tbody>
@@ -35,11 +41,38 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-    props: ['userlist'],
+    data(){
+        return{
+            userlist: []
+        }
+    },
+    mounted(){
+        this.retrieve();
+    },
+    // props: ['userlist'],
     methods: {
-        deleteApp(index) {
-            this.userlist.splice(index,1);
+         deleteApp(id) {
+            for(let i = 0; i < this.userlist.length; i++){
+                if(this.userlist[i].profile.result.id == id){
+                    this.userlist[i].profile.result.isActive = false;
+                }
+            }
+        },
+        reinstate(id){
+            for(let i = 0; i < this.userlist.length; i++){
+                if(this.userlist[i].profile.result.id == id){
+                    this.userlist[i].profile.result.isActive = true;
+                }
+            }
+        },
+        async retrieve(){
+            await axios
+            .get('db.json')
+            .then(response => (
+                this.userlist = response.data
+            ))
         }
     }
 };
@@ -50,12 +83,12 @@ export default {
     margin-top: 10px;
 }
 .card-body{
-    background-color: purple;
+    background-color: #4D1979;
     color: white;
 }
 
 thead tr{
-    background-color: purple;
+    background-color: #4D1979;
     border-bottom: 2px solid white;
     color: white;
 }
