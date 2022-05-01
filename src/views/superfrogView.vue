@@ -16,6 +16,7 @@ export default {
                     bookDate: "2/5/22",
                     time: "1:00 - 3:00 PM",
                     address: "123 Forest Park Blvd",
+                    status: "Pending",
                     isPending: true,
                 },
                 {
@@ -26,6 +27,7 @@ export default {
                     bookDate: "2/6/22",
                     time: "1:00 - 3:00 PM",
                     address: "456 McCart Ave",
+                    status: "Pending",
                     isPending: true,
                 },
                 {
@@ -36,6 +38,7 @@ export default {
                     bookDate: "2/7/22",
                     time: "1:00 - 3:00 PM",
                     address: "789 University Dr",
+                    status: "Pending",
                     isPending: true, 
                 },
                 {
@@ -46,6 +49,7 @@ export default {
                     bookDate: "2/8/22",
                     time: "1:00 - 3:00 PM",
                     address: "123 Wabash Ave",
+                    status: "Pending",
                     isPending: true, 
                 },
                 {
@@ -56,6 +60,7 @@ export default {
                     bookDate: "2/9/22",
                     time: "1:00 - 3:00 PM",
                     address: "456 Waits Ave",
+                    status: "Pending",
                     isPending: true, 
                 }
             ],

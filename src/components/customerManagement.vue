@@ -28,10 +28,10 @@
                     <td> {{user.profile.result.isActive}} </td>
                     <td> {{user.profile.result.address}} </td>
                     <td>
-                        <button type="button" class="btn btn-danger" @click="deleteApp(user.id)">Remove</button>
+                        <button type="button" class="btn btn-danger" @click="deleteApp(user.profile.result.id)">Remove</button>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-success" @click="reinstate(user.id)">Re-Activate</button>
+                        <button type="button" class="btn btn-success" @click="reinstate(user.profile.result.id)">Re-Activate</button>
                     </td>
                 </tr>
             </tbody>
@@ -53,17 +53,17 @@ export default {
     },
     // props: ['userlist'],
     methods: {
-        deleteApp(id) {
+         deleteApp(id) {
             for(let i = 0; i < this.userlist.length; i++){
-                if(this.userlist[i].id == id){
-                     this.userlist[i].isActive = false;
+                if(this.userlist[i].profile.result.id == id){
+                    this.userlist[i].profile.result.isActive = false;
                 }
             }
         },
         reinstate(id){
             for(let i = 0; i < this.userlist.length; i++){
-                if(this.userlist[i].id == id){
-                     this.userlist[i].isActive = true;
+                if(this.userlist[i].profile.result.id == id){
+                    this.userlist[i].profile.result.isActive = true;
                 }
             }
         },
