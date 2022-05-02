@@ -4,6 +4,14 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Approval Management</h5>
+                <vue-json-to-csv
+                    :json-data="userlist"
+                    :csv-title="'download file'"
+                >
+                    <v-btn color="success" class="mr-6">
+                        Download Appearances <i class="mdi mdi-export-variant" aria-hidden="true"></i>
+                    </v-btn>
+                </vue-json-to-csv>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -65,6 +73,7 @@
 </template>
 
 <script>
+import VueJsonToCsv from 'vue-json-to-csv'
 export default {
     props: ['userlist'],
     methods: {
