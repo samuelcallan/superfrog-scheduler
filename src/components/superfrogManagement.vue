@@ -34,10 +34,13 @@
                     <td > {{user.profile.result.address}} </td>
                     <td > {{user.profile.result.status}} </td>
                     <td>
-                        <button type="button" class="btn btn-primary" @click="acceptApp(index)">Accept</button>
+                        <button type="button" class="btn btn-primary" @click="acceptApp(user.profile.result.id)">Accept</button>
                     </td>
                     <td>
                         <button type="button" class="btn btn-danger" @click="denyApp(index)">Deny</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" @click="finishApp(user.profile.result.id)">Finish</button>
                     </td>
                 </tr>
             </tbody>
@@ -61,9 +64,19 @@ export default {
         denyApp(index) {
             this.userlist.splice(index,1);
         },
-
-        acceptApp(index){
-
+        acceptApp(id){
+            for(let i = 0; i < this.userlist.length; i++){
+                if(this.userlist[i].profile.result.id == id){
+                    this.userlist[i].profile.result.status = "Accepted";
+                }
+            }
+        },
+        finishApp(id){
+            for(let i = 0; i < this.userlist.length; i++){
+                if(this.userlist[i].profile.result.id == id){
+                    this.userlist[i].profile.result.status = "Finished";
+                }
+            }
         },
         async retrieve(){
             await axios
