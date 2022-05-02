@@ -9,7 +9,7 @@
                     :csv-title="'download file'"
                 >
                     <v-btn color="success" class="mr-6">
-                        Download Appearances <i class="mdi mdi-export-variant" aria-hidden="true"></i>
+                        Download Appearances
                     </v-btn>
                 </vue-json-to-csv>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
